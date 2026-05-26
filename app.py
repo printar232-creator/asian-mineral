@@ -845,4 +845,4 @@ html_code = """
 """
 
 # คำสั่งของ Streamlit ในการแสดงผลโค้ด HTML/JS ทั้งหมดออกไปยังเว็บบราวเซอร์แบบดั้งเดิม
-st.components.v1.html(html_code, height=4500, scroller=False)
+st.components.v1.html(html_code, height=4500)
