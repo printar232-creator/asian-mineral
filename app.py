@@ -513,4 +513,4 @@ html_code = """
 """
 
 # แสดงผล HTML ภายในเว็บแอป Streamlit โดยกำหนดความสูงให้พอดีกับหน้าจอ
-st.components.v1.html(html_code, height=3500, scroller=False)
+st.components.v1.html(html_code, height=3500)
