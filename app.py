@@ -510,4 +510,4 @@ html_code = """<!DOCTYPE html>
 </html>"""
 
 # แสดงผล HTML ในหน้าเว็บ Streamlit
-st.components.v1.html(html_code, height=900, scroller=True)
+st.components.v1.html(html_code, height=900, scrolling=True)
