@@ -11,15 +11,17 @@ st.set_page_config(
 # โค้ด HTML, CSS (Tailwind), และ JavaScript สำหรับเว็บไซต์หน้าเดียว (SPA)
 html_code = """
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asia Mineral Supply (AMS)</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="family">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -43,6 +45,7 @@ html_code = """
 </head>
 <body class="bg-[#f8fafc]">
 
+    <!-- 1. NAVIGATION BAR -->
     <nav class="sticky top-0 z-50 bg-[#0b2c3d] text-white shadow-xl border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -52,16 +55,18 @@ html_code = """
                         <span class="text-xs tracking-widest text-slate-400 font-light -mt-1">ASIA MINERAL SUPPLY</span>
                     </div>
                 </div>
+                <!-- Desktop Menu - เปลี่ยน href เป็นการเรียกฟังก์ชัน JS -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8 text-sm font-medium tracking-wide">
-                        <a href="#about" class="hover:text-[#c5a059] transition-colors duration-300">About Us</a>
-                        <a href="#products" class="hover:text-[#c5a059] transition-colors duration-300">Products</a>
-                        <a href="#manufacturing" class="hover:text-[#c5a059] transition-colors duration-300">Manufacturing & QC</a>
-                        <a href="#applications" class="hover:text-[#c5a059] transition-colors duration-300">Applications</a>
-                        <a href="#contact" class="hover:text-[#c5a059] transition-colors duration-300">Contact Us</a>
-                        <a href="#contact" class="bg-[#c5a059] text-[#0b2c3d] px-5 py-2.5 rounded font-semibold shadow-lg hover:bg-[#b38f48] transition-all duration-300 transform hover:-translate-y-0.5">Request Quote / COA</a>
+                        <button onclick="scrollToSection('about')" class="hover:text-[#c5a059] transition-colors duration-300 focus:outline-none">About Us</button>
+                        <button onclick="scrollToSection('products')" class="hover:text-[#c5a059] transition-colors duration-300 focus:outline-none">Products</button>
+                        <button onclick="scrollToSection('manufacturing')" class="hover:text-[#c5a059] transition-colors duration-300 focus:outline-none">Manufacturing & QC</button>
+                        <button onclick="scrollToSection('applications')" class="hover:text-[#c5a059] transition-colors duration-300 focus:outline-none">Applications</button>
+                        <button onclick="scrollToSection('contact')" class="hover:text-[#c5a059] transition-colors duration-300 focus:outline-none">Contact Us</button>
+                        <button onclick="scrollToSection('contact')" class="bg-[#c5a059] text-[#0b2c3d] px-5 py-2.5 rounded font-semibold shadow-lg hover:bg-[#b38f48] transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none">Request Quote / COA</button>
                     </div>
                 </div>
+                <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,16 +76,18 @@ html_code = """
                 </div>
             </div>
         </div>
+        <!-- Mobile Menu Deployment -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#0b2c3d] px-4 pt-2 pb-4 space-y-2 border-t border-slate-800">
-            <a href="#about" class="block text-slate-300 hover:text-white py-2">About Us</a>
-            <a href="#products" class="block text-slate-300 hover:text-white py-2">Products</a>
-            <a href="#manufacturing" class="block text-slate-300 hover:text-white py-2">Manufacturing & QC</a>
-            <a href="#applications" class="block text-slate-300 hover:text-white py-2">Applications</a>
-            <a href="#contact" class="block text-slate-300 hover:text-white py-2">Contact Us</a>
-            <a href="#contact" class="block bg-[#c5a059] text-[#0b2c3d] text-center px-4 py-2 rounded font-semibold mt-4">Request Quote / COA</a>
+            <button onclick="scrollToSection('about')" class="block w-full text-left text-slate-300 hover:text-white py-2">About Us</button>
+            <button onclick="scrollToSection('products')" class="block w-full text-left text-slate-300 hover:text-white py-2">Products</button>
+            <button onclick="scrollToSection('manufacturing')" class="block w-full text-left text-slate-300 hover:text-white py-2">Manufacturing & QC</button>
+            <button onclick="scrollToSection('applications')" class="block w-full text-left text-slate-300 hover:text-white py-2">Applications</button>
+            <button onclick="scrollToSection('contact')" class="block w-full text-left text-slate-300 hover:text-white py-2">Contact Us</button>
+            <button onclick="scrollToSection('contact')" class="block bg-[#c5a059] text-[#0b2c3d] text-center px-4 py-2 rounded font-semibold mt-4 w-full">Request Quote / COA</button>
         </div>
     </nav>
 
+    <!-- 2. HERO SECTION -->
     <header class="relative bg-[#0b2c3d] text-white overflow-hidden py-24 lg:py-32">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#c5a059_1px,transparent_1px)] [background-size:16px_16px]"></div>
@@ -89,39 +96,41 @@ html_code = """
             <div class="lg:w-2/3">
                 <span class="inline-block border border-[#c5a059] text-[#c5a059] font-medium text-xs uppercase tracking-widest px-3 py-1 rounded-full mb-6">World-Class Industrial Minerals</span>
                 <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-                    Reliable supply of powder <br><span class="text-[#c5a059]">Barium Sulphate (BaSO₄)</span> & Talc
+                    Reliable supply of powder <br><span class="text-[#c5a059]">Barium Sulphate (BaSO₄)</span> & Talc[cite: 1]
                 </h1>
                 <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed mb-10">
-                    Partnering with Asian Mineral Resources (AMR). Over 30 years of premier mineral processing heritage in Saraburi, Thailand. Delivering ultra-pure minerals globally.
+                    Partnering with Asian Mineral Resources (AMR). Over 30 years of premier mineral processing heritage in Saraburi, Thailand. Delivering ultra-pure minerals globally.[cite: 1]
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#products" class="bg-[#c5a059] text-[#0b2c3d] px-8 py-3.5 rounded font-semibold shadow-lg text-center hover:bg-[#b38f48] transition-all duration-300 transform hover:-translate-y-0.5">
+                    <button onclick="scrollToSection('products')" class="bg-[#c5a059] text-[#0b2c3d] px-8 py-3.5 rounded font-semibold shadow-lg text-center hover:bg-[#b38f48] transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none">
                         Download Technical Specs
-                    </a>
-                    <a href="#contact" class="border border-slate-500 text-white px-8 py-3.5 rounded font-semibold text-center hover:bg-slate-800 hover:border-white transition-all duration-300">
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="border border-slate-500 text-white px-8 py-3.5 rounded font-semibold text-center hover:bg-slate-800 hover:border-white transition-all duration-300 focus:outline-none">
                         Contact Sales
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- 3. ABOUT US SECTION -->
     <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-5">
                 <span class="text-xs font-bold tracking-widest text-[#c5a059] uppercase block mb-2">Corporate Profile</span>
                 <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#0b2c3d] mb-6">Strategic Partnership in Mineral Processing</h2>
                 <p class="text-slate-600 leading-relaxed mb-6">
-                    <strong>Asia Mineral Supply (AMS)</strong> acts as the exclusive Sales & Marketing arm to <strong>Asian Mineral Resources (AMR)</strong>, our affiliated production hub with over 30 years of extensive grinding mill expertise.
+                    <strong>Asia Mineral Supply (AMS)</strong> acts as the exclusive Sales & Marketing arm to <strong>Asian Mineral Resources (AMR)</strong>, our affiliated production hub with over 30 years of extensive grinding mill expertise.[cite: 1]
                 </p>
                 <p class="text-slate-600 leading-relaxed mb-8">
-                    Strategically located 120 kilometers east of Bangkok at the center of <strong>Saraburi</strong>—the historical heartland of Thailand's mineral grinding industry—our facility enables streamlined logistics directly to the Bangkok Port for rapid international shipment.
+                    Strategically located 120 kilometers east of Bangkok at the center of <strong>Saraburi</strong>—the historical heartland of Thailand's mineral grinding industry—our facility enables streamlined logistics directly to the Bangkok Port for rapid international shipment.[cite: 1]
                 </p>
                 <div class="border-l-4 border-[#c5a059] pl-4 italic text-slate-700 bg-slate-100 p-4 rounded-r shadow-sm">
-                    "Dedicated to supplying natural premium functional fillers ranging from ultra-fine 5 micron powders to industry-standard 325 mesh aggregates."
+                    "Dedicated to supplying natural premium functional fillers ranging from ultra-fine 5 micron powders to industry-standard 325 mesh aggregates."[cite: 1]
                 </div>
             </div>
             
+            <!-- Supply Ability Cards -->
             <div class="lg:col-span-7">
                 <h3 class="text-xl font-bold text-[#0b2c3d] mb-6 flex items-center">
                     <span class="bg-[#0b2c3d] text-white w-2 h-6 inline-block mr-3"></span>
@@ -130,73 +139,78 @@ html_code = """
                 <div class="grid sm:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#0b2c3d]">
                         <div class="text-[#c5a059] font-bold text-lg mb-2">China</div>
-                        <p class="text-sm text-slate-600 leading-relaxed">High quality reserves backed by abundant, established geological deposits ensuring long-term volume stability.</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">High quality reserves backed by abundant, established geological deposits ensuring long-term volume stability.[cite: 1]</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#c5a059]">
                         <div class="text-[#0b2c3d] font-bold text-lg mb-2">Laos</div>
-                        <p class="text-sm text-slate-600 leading-relaxed">Immediate cross-border logistical access. Strict pre-wash and tailored ore selection controls enforced at the frontier.</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Immediate cross-border logistical access. Strict pre-wash and tailored ore selection controls enforced at the frontier.[cite: 1]</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-slate-400">
                         <div class="text-slate-500 font-bold text-lg mb-2">Pakistan</div>
-                        <p class="text-sm text-slate-600 leading-relaxed">Alternative supply channels offering highly acceptable grade quality, with ongoing supply capability verification.</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Alternative supply channels offering highly acceptable grade quality, with ongoing supply capability verification.[cite: 1]</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 4. PRODUCTION & TECH SPECS SECTION -->
     <section id="manufacturing" class="py-24 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold tracking-widest text-[#c5a059] uppercase block mb-2">Industrial Capacity</span>
                 <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-4">Advanced Grinding Infrastructure</h2>
-                <p class="text-slate-400">Operating 5 highly customized processing lines running 16 hours a day to deliver over 25,000+ MT annual output capacity of Barytes and high-grade Talc.</p>
+                <p class="text-slate-400">Operating 5 highly customized processing lines running 16 hours a day to deliver over 25,000+ MT annual output capacity of Barytes and high-grade Talc.[cite: 1]</p>
             </div>
 
+            <!-- 5 Production Lines Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
                 <div class="bg-slate-800 p-6 rounded border border-slate-700 hover:border-[#c5a059] transition-all">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 1: Super Fine</div>
-                    <div class="text-xl font-bold text-[#c5a059] mb-2">2,500 MT / Year</div>
-                    <p class="text-xs text-slate-300">Down to 5 Micron ultra-fine classification for premium applications.</p>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 1: Super Fine[cite: 1]</div>
+                    <div class="text-xl font-bold text-[#c5a059] mb-2">2,500 MT / Year[cite: 1]</div>
+                    <p class="text-xs text-slate-300">Down to 5 Micron ultra-fine classification for premium applications.[cite: 1]</p>
                 </div>
                 <div class="bg-slate-800 p-6 rounded border border-slate-700 hover:border-[#c5a059] transition-all">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 2: Fine Grade</div>
-                    <div class="text-xl font-bold text-[#c5a059] mb-2">7,500 MT / Year</div>
-                    <p class="text-xs text-slate-300">Targeted sizing protocols at 5µ, 7µ, and 10µ distributions.</p>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 2: Fine Grade[cite: 1]</div>
+                    <div class="text-xl font-bold text-[#c5a059] mb-2">7,500 MT / Year[cite: 1]</div>
+                    <p class="text-xs text-slate-300">Targeted sizing protocols at 5µ, 7µ, and 10µ distributions.[cite: 1]</p>
                 </div>
                 <div class="bg-slate-800 p-6 rounded border border-slate-700 hover:border-[#c5a059] transition-all">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 3: Fine Grade</div>
-                    <div class="text-xl font-bold text-[#c5a059] mb-2">7,500 MT / Year</div>
-                    <p class="text-xs text-slate-300">Parallel manufacturing line specialized in sharp particle distribution.</p>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 3: Fine Grade[cite: 1]</div>
+                    <div class="text-xl font-bold text-[#c5a059] mb-2">7,500 MT / Year[cite: 1]</div>
+                    <p class="text-xs text-slate-300">Parallel manufacturing line specialized in sharp particle distribution.[cite: 1]</p>
                 </div>
                 <div class="bg-slate-800 p-6 rounded border border-slate-700 hover:border-[#c5a059] transition-all">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 4: API Barytes</div>
-                    <div class="text-xl font-bold text-[#c5a059] mb-2">15,000 MT / Year</div>
-                    <p class="text-xs text-slate-300">Dedicated high-density milling for functional heavy weighting agents.</p>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 4: API Barytes[cite: 1]</div>
+                    <div class="text-xl font-bold text-[#c5a059] mb-2">15,000 MT / Year[cite: 1]</div>
+                    <p class="text-xs text-slate-300">Dedicated high-density milling for functional heavy weighting agents.[cite: 1]</p>
                 </div>
                 <div class="bg-slate-800 p-6 rounded border border-slate-700 hover:border-[#c5a059] transition-all">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 5: API Barytes</div>
-                    <div class="text-xl font-bold text-[#c5a059] mb-2">15,000 MT / Year</div>
-                    <p class="text-xs text-slate-300">Scale replication ensuring zero downtime and continuous strategic output.</p>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Line 5: API Barytes[cite: 1]</div>
+                    <div class="text-xl font-bold text-[#c5a059] mb-2">15,000 MT / Year[cite: 1]</div>
+                    <p class="text-xs text-slate-300">Scale replication ensuring zero downtime and continuous strategic output.[cite: 1]</p>
                 </div>
             </div>
 
+            <!-- INTERACTIVE PRODUCT SPECIFICATIONS TABLES -->
             <div id="products" class="bg-slate-800 rounded-xl p-6 sm:p-8 border border-slate-700 shadow-2xl">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-700 pb-6 mb-8 gap-4">
                     <div>
                         <h3 class="text-2xl font-bold font-serif text-white">Interactive Specifications Portal</h3>
-                        <p class="text-xs text-slate-400 mt-1">Verified via SediGraph (Micromeritics) methodology & KETT Reflectometer controls</p>
+                        <p class="text-xs text-slate-400 mt-1">Verified via SediGraph (Micromeritics) methodology & KETT Reflectometer controls[cite: 1]</p>
                     </div>
+                    <!-- Tabs Buttons -->
                     <div class="flex bg-slate-900 p-1.5 rounded-lg border border-slate-700">
-                        <button onclick="switchTab('baso4-panel', this)" class="tab-btn px-4 py-2 text-sm rounded font-medium bg-[#c5a059] text-[#0b2c3d] transition-all">
+                        <button onclick="switchTab('baso4-panel', this)" class="tab-btn px-4 py-2 text-sm rounded font-medium bg-[#c5a059] text-[#0b2c3d] transition-all focus:outline-none">
                             Barium Sulphate (BaSO₄)
                         </button>
-                        <button onclick="switchTab('talc-panel', this)" class="tab-btn px-4 py-2 text-sm rounded font-medium text-slate-400 hover:text-white transition-all">
+                        <button onclick="switchTab('talc-panel', this)" class="tab-btn px-4 py-2 text-sm rounded font-medium text-slate-400 hover:text-white transition-all focus:outline-none">
                             Talc Ranges
                         </button>
                     </div>
                 </div>
 
+                <!-- Tab 1: BaSO4 -->
                 <div id="baso4-panel" class="tab-content overflow-x-auto">
                     <table class="w-full text-left border-collapse text-sm">
                         <thead>
@@ -212,72 +226,73 @@ html_code = """
                         </thead>
                         <tbody class="divide-y divide-slate-700 text-slate-300">
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 2</td>
-                                <td class="py-3">&gt;98.0%</td>
-                                <td class="py-3">14 µ <span class="text-slate-500">(800 mesh)</span></td>
-                                <td class="py-3">2 µ <span class="text-slate-500">(3,500 mesh)</span></td>
-                                <td class="py-3">&gt;93%</td>
-                                <td class="py-3">&gt;4.20</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 2[cite: 1]</td>
+                                <td class="py-3">&gt;98.0%[cite: 1]</td>
+                                <td class="py-3">14 µ <span class="text-slate-500">(800 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">2 µ <span class="text-slate-500">(3,500 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">&gt;93%[cite: 1]</td>
+                                <td class="py-3">&gt;4.20[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 5</td>
-                                <td class="py-3">96.7%</td>
-                                <td class="py-3">20 µ <span class="text-slate-500">(625 mesh)</span></td>
-                                <td class="py-3">5 µ <span class="text-slate-500">(2,500 mesh)</span></td>
-                                <td class="py-3">91%</td>
-                                <td class="py-3">&gt;4.20</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 5[cite: 1]</td>
+                                <td class="py-3">96.7%[cite: 1]</td>
+                                <td class="py-3">20 µ <span class="text-slate-500">(625 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">5 µ <span class="text-slate-500">(2,500 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">91%[cite: 1]</td>
+                                <td class="py-3">&gt;4.20[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 7</td>
-                                <td class="py-3">96.7%</td>
-                                <td class="py-3">25 µ <span class="text-slate-500">(550 mesh)</span></td>
-                                <td class="py-3">7 µ <span class="text-slate-500">(1,500 mesh)</span></td>
-                                <td class="py-3">91%</td>
-                                <td class="py-3">&gt;4.20</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 7[cite: 1]</td>
+                                <td class="py-3">96.7%[cite: 1]</td>
+                                <td class="py-3">25 µ <span class="text-slate-500">(550 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">7 µ <span class="text-slate-500">(1,500 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">91%[cite: 1]</td>
+                                <td class="py-3">&gt;4.20[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 10</td>
-                                <td class="py-3">96.7%</td>
-                                <td class="py-3">30 µ <span class="text-slate-500">(450 mesh)</span></td>
-                                <td class="py-3">10 µ <span class="text-slate-500">(1,250 mesh)</span></td>
-                                <td class="py-3">91%</td>
-                                <td class="py-3">&gt;4.20</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Microbytes 10[cite: 1]</td>
+                                <td class="py-3">96.7%[cite: 1]</td>
+                                <td class="py-3">30 µ <span class="text-slate-500">(450 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">10 µ <span class="text-slate-500">(1,250 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">91%[cite: 1]</td>
+                                <td class="py-3">&gt;4.20[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Milbar 5 / 7 / 10</td>
-                                <td class="py-3">96.7%</td>
-                                <td class="py-3">20 / 25 / 30 µ</td>
-                                <td class="py-3">5 / 7 / 10 µ</td>
-                                <td class="py-3">89% <span class="text-slate-500">(±3)</span></td>
-                                <td class="py-3">&gt;4.20</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Milbar 5 / 7 / 10[cite: 1]</td>
+                                <td class="py-3">96.7%[cite: 1]</td>
+                                <td class="py-3">20 / 25 / 30 µ[cite: 1]</td>
+                                <td class="py-3">5 / 7 / 10 µ[cite: 1]</td>
+                                <td class="py-3">89% <span class="text-slate-500">(±3)</span>[cite: 1]</td>
+                                <td class="py-3">&gt;4.20[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Milbar A45</td>
-                                <td class="py-3">96.7%</td>
-                                <td class="py-3">45 µ <span class="text-slate-500">(325 mesh)</span></td>
-                                <td class="py-3">14 µ <span class="text-slate-500">(900 mesh)</span></td>
-                                <td class="py-3">90%</td>
-                                <td class="py-3">&gt;4.20</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Milbar A45[cite: 1]</td>
+                                <td class="py-3">96.7%[cite: 1]</td>
+                                <td class="py-3">45 µ <span class="text-slate-500">(325 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">14 µ <span class="text-slate-500">(900 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">90%[cite: 1]</td>
+                                <td class="py-3">&gt;4.20[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-3 pl-2 font-semibold text-white">Milbar D45</td>
-                                <td class="py-3">93.0%</td>
-                                <td class="py-3">45 µ <span class="text-slate-500">(325 mesh)</span></td>
-                                <td class="py-3">14 µ <span class="text-slate-500">(900 mesh)</span></td>
-                                <td class="py-3">60%</td>
-                                <td class="py-3">3.90 - 4.00</td>
-                                <td class="py-3 pr-2">0.1%</td>
+                                <td class="py-3 pl-2 font-semibold text-white">Milbar D45[cite: 1]</td>
+                                <td class="py-3">93.0%[cite: 1]</td>
+                                <td class="py-3">45 µ <span class="text-slate-500">(325 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">14 µ <span class="text-slate-500">(900 mesh)</span>[cite: 1]</td>
+                                <td class="py-3">60%[cite: 1]</td>
+                                <td class="py-3">3.90 - 4.00[cite: 1]</td>
+                                <td class="py-3 pr-2">0.1%[cite: 1]</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- Tab 2: Talc -->
                 <div id="talc-panel" class="tab-content hidden overflow-x-auto">
                     <table class="w-full text-left border-collapse text-sm">
                         <thead>
@@ -292,26 +307,27 @@ html_code = """
                         </thead>
                         <tbody class="divide-y divide-slate-700 text-slate-300">
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-4 pl-2 font-semibold text-white">Talcon BC20</td>
-                                <td class="py-4">20 µ <span class="text-slate-500">(630 mesh)</span></td>
-                                <td class="py-4">6.0 - 7.0 µ</td>
-                                <td class="py-4 text-[#c5a059] font-medium">91%</td>
-                                <td class="py-4">Industrial Rubber Thread Manufacture</td>
-                                <td class="py-4 pr-2 text-emerald-400">Yes (Upon Request)</td>
+                                <td class="py-4 pl-2 font-semibold text-white">Talcon BC20[cite: 1]</td>
+                                <td class="py-4">20 µ <span class="text-slate-500">(630 mesh)</span>[cite: 1]</td>
+                                <td class="py-4">6.0 - 7.0 µ[cite: 1]</td>
+                                <td class="py-4 text-[#c5a059] font-medium">91%[cite: 1]</td>
+                                <td class="py-4">Industrial Rubber Thread Manufacture[cite: 1]</td>
+                                <td class="py-4 pr-2 text-emerald-400">Yes (Upon Request)[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-700/50">
-                                <td class="py-4 pl-2 font-semibold text-white">Talcon BC45</td>
-                                <td class="py-4">45 µ <span class="text-slate-500">(325 mesh)</span></td>
-                                <td class="py-4">12.0 - 15.0 µ</td>
-                                <td class="py-4 text-[#c5a059] font-medium">90%</td>
-                                <td class="py-4">Premium Cosmetics & High-Grade Paints</td>
-                                <td class="py-4 pr-2 text-emerald-400">Yes (Upon Request)</td>
+                                <td class="py-4 pl-2 font-semibold text-white">Talcon BC45[cite: 1]</td>
+                                <td class="py-4">45 µ <span class="text-slate-500">(325 mesh)</span>[cite: 1]</td>
+                                <td class="py-4">12.0 - 15.0 µ[cite: 1]</td>
+                                <td class="py-4 text-[#c5a059] font-medium">90%[cite: 1]</td>
+                                <td class="py-4">Premium Cosmetics & High-Grade Paints[cite: 1]</td>
+                                <td class="py-4 pr-2 text-emerald-400">Yes (Upon Request)[cite: 1]</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
+            <!-- Quality Guarantees -->
             <div class="mt-16 grid md:grid-cols-3 gap-8 text-center sm:text-left">
                 <div class="bg-slate-800/40 p-6 rounded-lg border border-slate-700">
                     <div class="text-[#c5a059] mb-3">
@@ -320,7 +336,7 @@ html_code = """
                         </svg>
                     </div>
                     <h4 class="text-lg font-bold mb-2">Zero Silica Certified</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Independent laboratory testing in Australia certifies that our Respirable Crystalline Silica content is strictly &lt; 0.001%, guaranteeing absolute industrial safety.</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Independent laboratory testing in Australia certifies that our Respirable Crystalline Silica content is strictly &lt; 0.001%, guaranteeing absolute industrial safety.[cite: 1]</p>
                 </div>
                 <div class="bg-slate-800/40 p-6 rounded-lg border border-slate-700">
                     <div class="text-[#c5a059] mb-3">
@@ -329,7 +345,7 @@ html_code = """
                         </svg>
                     </div>
                     <h4 class="text-lg font-bold mb-2">Pure Natural Product</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Zero chemical pre-treatment of our raw Barytes lump minerals. Our products maintain pure, natural, original physical characteristics.</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Zero chemical pre-treatment of our raw Barytes lump minerals. Our products maintain pure, natural, original physical characteristics.[cite: 1]</p>
                 </div>
                 <div class="bg-slate-800/40 p-6 rounded-lg border border-slate-700">
                     <div class="text-[#c5a059] mb-3">
@@ -338,12 +354,13 @@ html_code = """
                         </svg>
                     </div>
                     <h4 class="text-lg font-bold mb-2">Strict PSD Control</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Narrow-range Particle Size Distribution (PSD) managed by elite, veteran quality control specialists and structural engineers.</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Narrow-range Particle Size Distribution (PSD) managed by elite, veteran quality control specialists and structural engineers.[cite: 1]</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 5. APPLICATIONS SECTION -->
     <section id="applications" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <span class="text-xs font-bold tracking-widest text-[#c5a059] uppercase block mb-2">Cross-Industry Solutions</span>
@@ -359,9 +376,9 @@ html_code = """
                 </div>
                 <h3 class="text-xl font-bold text-[#0b2c3d] mb-4">Color, Paint & Extenders</h3>
                 <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Specialized 15% loading formulas for high-end powder coating.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Serves as an architectural filler to optimize scrub-resistance in decorative paints.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Exceptionally low dispersion time curves in commercial liquid matrices.</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Specialized 15% loading formulas for high-end powder coating.[cite: 1]</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Serves as an architectural filler to optimize scrub-resistance in decorative paints.[cite: 1]</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Exceptionally low dispersion time curves in commercial liquid matrices.[cite: 1]</li>
                 </ul>
             </div>
             
@@ -373,8 +390,8 @@ html_code = """
                 </div>
                 <h3 class="text-xl font-bold text-[#0b2c3d] mb-4">Plastics & Polymers</h3>
                 <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Ideal structural weighting agent integrated into technical PP compounding.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Low-cost functional white base extenders for sound-dampening thermoplastics.</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Ideal structural weighting agent integrated into technical PP compounding.[cite: 1]</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Low-cost functional white base extenders for sound-dampening thermoplastics.[cite: 1]</li>
                 </ul>
             </div>
 
@@ -386,14 +403,15 @@ html_code = """
                 </div>
                 <h3 class="text-xl font-bold text-[#0b2c3d] mb-4">Friction, Seals & Drilling</h3>
                 <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Heavy-duty structural base for automotive break pad/shoe lining applications.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Primers, dense wood fillers, and architectural plywood sealants (Milbar D45).</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Fully compliant API standard oil-drilling grade mud-weighting agents (T-Bar 200).</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Heavy-duty structural base for automotive break pad/shoe lining applications.[cite: 1]</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Primers, dense wood fillers, and architectural plywood sealants (Milbar D45).[cite: 1]</li>
+                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Fully compliant API standard oil-drilling grade mud-weighting agents (T-Bar 200).[cite: 1]</li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <!-- 6. CONTACT & QUOTE REQUEST FORM -->
     <section id="contact" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-16">
@@ -414,7 +432,7 @@ html_code = """
                             </div>
                             <div>
                                 <h4 class="font-bold text-[#0b2c3d]">Production Plant Location</h4>
-                                <p class="text-sm text-slate-600 mt-1">Saraburi Industrial Grinding Hub (120 km from Bangkok Port), Thailand.</p>
+                                <p class="text-sm text-slate-600 mt-1">Saraburi Industrial Grinding Hub (120 km from Bangkok Port), Thailand.[cite: 1]</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -475,20 +493,43 @@ html_code = """
     </section>
 
     <footer class="bg-[#0b2c3d] text-slate-400 py-12 text-center text-xs border-t border-slate-800">
-        <p class="tracking-wide">&copy; 2026 Asia Mineral Supply (AMS). All Rights Reserved. Strategic partner to Asian Mineral Resources (AMR).</p>
+        <p class="tracking-wide">&copy; 2026 Asia Mineral Supply (AMS). All Rights Reserved. Strategic partner to Asian Mineral Resources (AMR).[cite: 1]</p>
     </footer>
 
+    <!-- INTERACTIVE JAVASCRIPT (ปรับปรุงระบบเลื่อนหน้าจอ Parent Window) -->
     <script>
-        // Tab switching logic
+        // ฟังก์ชันคำนวณตำแหน่งเพื่อสั่งเลื่อนหน้าต่างหลักของ Streamlit
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                // หาตำแหน่งปุ่ม/หัวข้อเทียบกับขอบบนของ iframe
+                const elementRect = element.getBoundingClientRect();
+                const iframeTop = elementRect.top + window.pageYOffset;
+                
+                // ลบความสูงของ Navbar ออกเล็กน้อย (80px) เพื่อไม่ให้บังหัวข้อ
+                const finalScrollPosition = iframeTop - 20;
+
+                // สั่งให้หน้าต่างหลัก (Parent window ของ Streamlit) เลื่อนหน้าจอแบบนุ่มนวล
+                window.parent.scrollTo({
+                    top: finalScrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                // หากเปิดเมนูในมือถืออยู่ ให้ทำการปิดเมนูโดยอัตโนมัติหลังจากคลิก
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        }
+
+        // แท็บสลับหน้าข้อมูลสเปกแร่
         function switchTab(panelId, btn) {
-            // Hide all tab content elements
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(el => el.classList.add('hidden'));
             
-            // Show current element
             document.getElementById(panelId).classList.remove('hidden');
             
-            // Manage button active states
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(el => {
                 el.classList.remove('bg-[#c5a059]', 'text-[#0b2c3d]');
@@ -499,7 +540,7 @@ html_code = """
             btn.classList.add('bg-[#c5a059]', 'text-[#0b2c3d]');
         }
 
-        // Mobile responsive menu toggle
+        // ปุ่มแฮมเบอร์เกอร์สำหรับอุปกรณ์พกพา
         const menuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuBtn && mobileMenu) {
@@ -512,5 +553,5 @@ html_code = """
 </html>
 """
 
-# แสดงผล HTML ภายในเว็บแอป Streamlit โดยกำหนดความสูงให้พอดีกับหน้าจอ
-st.components.v1.html(html_code, height=3500)
+# เรนเดอร์ HTML ลงใน Streamlit (ลบพารามิเตอร์ scroller=False ออกตามโครงสร้างเวอร์ชันปัจจุบัน)
+st.components.v1.html(html_code, height=3450)
