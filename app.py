@@ -431,7 +431,7 @@ html_code = """<!DOCTYPE html>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-slate-800">K.Nong</h4>
+                                    <h4 class="font-bold text-slate-800">Srisuphat</h4>
                                     <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Customer Service & Export</p>
                                 </div>
                             </div>
@@ -450,7 +450,7 @@ html_code = """<!DOCTYPE html>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-slate-800">K.Prin</h4>
+                                    <h4 class="font-bold text-slate-800">Prin Wangtanapat</h4>
                                     <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Assistant Manager</p>
                                 </div>
                             </div>
