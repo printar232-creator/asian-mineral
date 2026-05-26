@@ -19,7 +19,7 @@ html_code = """
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="family">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -188,10 +188,10 @@ html_code = """
                         <p class="text-xs text-slate-400 mt-1">Verified via SediGraph (Micromeritics) methodology & KETT Reflectometer controls</p>
                     </div>
                     <div class="flex bg-slate-900 p-1.5 rounded-lg border border-slate-700">
-                        <button onclick="switchTab('baso4-panel', this)" class="tab-btn px-4 py-2 text-sm rounded font-medium bg-[#c5a059] text-[#0b2c3d] transition-all">
+                        <button id="baso4-btn" onclick="switchTab('baso4')" class="px-4 py-2 text-sm rounded font-medium bg-[#c5a059] text-[#0b2c3d] transition-all">
                             Barium Sulphate (BaSO₄)
                         </button>
-                        <button onclick="switchTab('talc-panel', this)" class="tab-btn px-4 py-2 text-sm rounded font-medium text-slate-400 hover:text-white transition-all">
+                        <button id="talc-btn" onclick="switchTab('talc')" class="px-4 py-2 text-sm rounded font-medium text-slate-400 hover:text-white transition-all">
                             Talc Ranges
                         </button>
                     </div>
@@ -334,183 +334,4 @@ html_code = """
                 <div class="bg-slate-800/40 p-6 rounded-lg border border-slate-700">
                     <div class="text-[#c5a059] mb-3">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-bold mb-2">Strict PSD Control</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Narrow-range Particle Size Distribution (PSD) managed by elite, veteran quality control specialists and structural engineers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="applications" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-xs font-bold tracking-widest text-[#c5a059] uppercase block mb-2">Cross-Industry Solutions</span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#0b2c3d]">Tailored Industry Performance</h2>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300">
-                <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center text-[#c5a059] mb-6">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#0b2c3d] mb-4">Color, Paint & Extenders</h3>
-                <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Specialized 15% loading formulas for high-end powder coating.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Serves as an architectural filler to optimize scrub-resistance in decorative paints.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Exceptionally low dispersion time curves in commercial liquid matrices.</li>
-                </ul>
-            </div>
-            
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300">
-                <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center text-[#c5a059] mb-6">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#0b2c3d] mb-4">Plastics & Polymers</h3>
-                <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Ideal structural weighting agent integrated into technical PP compounding.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Low-cost functional white base extenders for sound-dampening thermoplastics.</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300">
-                <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center text-[#c5a059] mb-6">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#0b2c3d] mb-4">Friction, Seals & Drilling</h3>
-                <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Heavy-duty structural base for automotive break pad/shoe lining applications.</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Primers, dense wood fillers, and architectural plywood sealants (Milbar D45).</li>
-                    <li class="flex items-start"><span class="text-[#c5a059] mr-2">•</span> Fully compliant API standard oil-drilling grade mud-weighting agents (T-Bar 200).</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-16">
-                <div class="lg:col-span-5">
-                    <span class="text-xs font-bold tracking-widest text-[#c5a059] uppercase block mb-2">Connect With Us</span>
-                    <h2 class="font-serif text-3xl font-bold text-[#0b2c3d] mb-6">Request Samples & Technical Documentation</h2>
-                    <p class="text-slate-600 mb-8 leading-relaxed">
-                        Secure certified copies of our Certificate of Analysis (COA), Technical Data Sheets (TDS), or request specific laboratory-grade samples for your compounding trials.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="text-[#c5a059] mt-1 mr-4">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#0b2c3d]">Production Plant Location</h4>
-                                <p class="text-sm text-slate-600 mt-1">Saraburi Industrial Grinding Hub (120 km from Bangkok Port), Thailand.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-[#c5a059] mt-1 mr-4">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-9 13h4a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#0b2c3d]">Commercial Correspondence</h4>
-                                <p class="text-sm text-slate-600 mt-1">sales@asiamineralsupply.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 bg-white p-8 rounded-xl shadow-md border border-slate-100">
-                    <form onsubmit="event.preventDefault(); alert('Thank you for your interest. Our B2B Sales Representative will reach out to your organization within 24 business hours.');" class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Corporate Name *</label>
-                            <input type="text" required class="w-full border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#0b2c3d]">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Work Email *</label>
-                            <input type="email" required class="w-full border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#0b2c3d]">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Target Product Grade *</label>
-                            <select class="w-full border border-slate-300 rounded bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-[#0b2c3d]">
-                                <option>Microbytes Series (BaSO4 ultra-fine)</option>
-                                <option>Milbar Series (BaSO4 premium)</option>
-                                <option>Milbar Industrial Grades (A45 / D45)</option>
-                                <option>Talcon Talc Series (BC20 / BC45)</option>
-                                <option>T-Bar 200 (API Drilling Grade)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Inquiry Type *</label>
-                            <select class="w-full border border-slate-300 rounded bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-[#0b2c3d]">
-                                <option>Request Official Quotation</option>
-                                <option>Request Lab-Sample & Technical Data Sheet</option>
-                                <option>Request Custom Mesh/Milling Consultation</option>
-                            </select>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Application Specifics / Annual Tonnage Needs</label>
-                            <textarea rows="4" class="w-full border border-slate-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#0b2c3d]" placeholder="Describe your industrial compound or target parameters..."></textarea>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <button type="submit" class="w-full bg-[#0b2c3d] text-white font-semibold py-3 rounded shadow hover:bg-slate-800 transition-colors uppercase tracking-wider text-sm">
-                                Submit B2B Request
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-[#0b2c3d] text-slate-400 py-12 text-center text-xs border-t border-slate-800">
-        <p class="tracking-wide">&copy; 2026 Asia Mineral Supply (AMS). All Rights Reserved. Strategic partner to Asian Mineral Resources (AMR).</p>
-    </footer>
-
-    <script>
-        // Tab switching logic
-        function switchTab(panelId, btn) {
-            // Hide all tab content elements
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(el => el.classList.add('hidden'));
-            
-            // Show current element
-            document.getElementById(panelId).classList.remove('hidden');
-            
-            // Manage button active states
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(el => {
-                el.classList.remove('bg-[#c5a059]', 'text-[#0b2c3d]');
-                el.classList.add('text-slate-400', 'hover:text-white');
-            });
-            
-            btn.classList.remove('text-slate-400', 'hover:text-white');
-            btn.classList.add('bg-[#c5a059]', 'text-[#0b2c3d]');
-        }
-
-        // Mobile responsive menu toggle
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
-</body>
-</html>
-"""
-
-# แสดงผล HTML ภายในเว็บแอป Streamlit โดยกำหนดความสูงให้พอดีกับหน้าจอ
-st.components.v1.html(html_code, height=3500)
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width
